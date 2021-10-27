@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/LogoPrincipal_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/Logo_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/gradient.xml" value="0.2203125" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/gradient_fab.xml" value="0.2203125" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/gradient_toolbar.xml" value="0.2203125" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/gradient_wall.xml" value="0.2203125" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/sinalMais_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/activityTelaCadastro.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/activityTelaLogin.xml" value="0.25" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/activity_cadastrar_tela.xml" value="0.33" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/activity_login_tela.xml" value="0.33" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/activity_principal.xml" value="0.33" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/activity_telaLogin.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/activity_tela_principal.xml" value="0.25" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/activity_telacadastro.xml" value="0.33" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/activity_telalogin.xml" value="0.33" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/content_principal.xml" value="0.33" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/content_tela_principal.xml" value="0.33" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/fragment_first.xml" value="0.33" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/fragment_second.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/mipmap-anydpi-v26/image.xml" value="0.2203125" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/mipmap-anydpi-v26/sinalMais.xml" value="0.1125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
