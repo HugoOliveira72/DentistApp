@@ -13,6 +13,7 @@ import com.example.dentistapp.R;
 
 import java.util.List;
 
+import helper.AutenticarUser;
 import model.user;
 
 public class Login extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class Login extends AppCompatActivity {
     private EditText campoEmail;
     private EditText campoSenha;
     private Button botaoEntrar;
+    private AutenticarUser autenticar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +40,17 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 if (validarEmail(campoEmail)) {
                     if (validarSenha(campoSenha)) {
-                        usuario = procurausuario();
-                        if(usuario.getNome().equals("Errado")){
-                            Toast.makeText(Login.this, "Usuário não encontrado", Toast.LENGTH_SHORT).show();
-                        }else{
+
+                        autenticar = new AutenticarUser();
+                        String email, senha;
+                        email = campoEmail.getText().toString();
+                        senha = campoSenha.getText().toString();
+
+                        if(autenticar.valiarUsuario(email,senha,getApplicationContext())){
                             AbrirTelaPrincipal(view);
+                            Toast.makeText(Login.this, "Logado com sucesso!", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(Login.this, "Usuário não encontrado", Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         Toast.makeText(Login.this, "Insira a senha", Toast.LENGTH_SHORT).show();
@@ -79,21 +87,6 @@ public class Login extends AppCompatActivity {
         }
         return true;
 
-    }
-
-    public user procurausuario() {
-        user u;
-        List<user> lista = MainActivity.listaUsers;
-
-        for (int i = 0; i < lista.size(); i++) {
-            u = lista.get(i);
-            if (u.getEmail().equals(campoEmail.getText().toString()) && u.getPassword().equals(campoSenha.getText().toString())) {
-                return u;
-            }
-        }
-        u = new user();
-        u.setNome("Errado");
-        return u;
     }
 
 }

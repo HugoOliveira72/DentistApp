@@ -124,9 +124,8 @@ public class Cadastro extends AppCompatActivity {
 
         UsuarioDAO usuarioDAO = new UsuarioDAO(getApplicationContext());
 
-        usuarioDAO.salvar(usuario);
+        return usuarioDAO.salvar(usuario);
 
-        return true;
     }
 
 

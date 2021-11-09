@@ -68,6 +68,7 @@ public class UsuarioDAO implements  IUsuarioDAO{
         Cursor c = leitura.rawQuery(sql,args);
 
         user usu = new user();
+        usu.setId(-1);
 
         if(c.getCount() != 0 ){
             c.moveToFirst();
