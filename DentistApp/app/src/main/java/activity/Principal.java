@@ -1,15 +1,16 @@
 package activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.dentistapp.R;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -18,20 +19,29 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.dentistapp.databinding.ActivityPrincipalBinding;
 
+import java.io.Serializable;
+
 import model.user;
 
-public class Principal extends AppCompatActivity {
+public class Principal extends AppCompatActivity implements Serializable {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityPrincipalBinding binding;
 
-    //private user usuario;
-    //private TextView textoNome;
+    user usuario;
+
+    //
+    TextView tv_Usernome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_first);
 
+
+
+
+        //---------------------------------------------------------------
         binding = ActivityPrincipalBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -41,18 +51,19 @@ public class Principal extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        //textoNome = findViewById(R.id.textviewNome);
-        //usuario = (user) getIntent().getSerializableExtra("usuario");
-
-        //atualizarFragment();
-
+        //FAB
         binding.fabAdicionarConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 abrirTelaConsulta(view);
             }
         });
+
+        //tv_Usernome = findViewById(R.id.tv_Username);
+        //tv_Usernome.setText();
+
     }
+
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -65,10 +76,15 @@ public class Principal extends AppCompatActivity {
         startActivity(new Intent(this,ConsultaActivity.class));
     }
 
+
     /*
+
+    @SuppressLint("SetTextI18n")
     public void atualizarFragment(){
         textoNome.setText("Usuário: "+usuario.getNome());
     }
 
      */
+
+
 }

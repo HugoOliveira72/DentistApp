@@ -11,12 +11,14 @@ import android.widget.Toast;
 
 import com.example.dentistapp.R;
 
+import java.io.Serializable;
 import java.util.List;
 
 import helper.AutenticarUser;
+import helper.UsuarioDAO;
 import model.user;
 
-public class Login extends AppCompatActivity {
+public class Login extends AppCompatActivity implements Serializable {
 
     private user usuario;
     private EditText campoEmail;
@@ -46,9 +48,11 @@ public class Login extends AppCompatActivity {
                         email = campoEmail.getText().toString();
                         senha = campoSenha.getText().toString();
 
+                        usuario = montarUser();
+
                         if(autenticar.valiarUsuario(email,senha,getApplicationContext())){
                             AbrirTelaPrincipal(view);
-                            Toast.makeText(Login.this, "Logado com sucesso!", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(Login.this, "Usuário:"+usuario.getNome(), Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(Login.this, "Usuário não encontrado", Toast.LENGTH_SHORT).show();
                         }
@@ -63,13 +67,18 @@ public class Login extends AppCompatActivity {
     }
 
     public void AbrirTelaPrincipal(View view) {
-        startActivity(new Intent(this, Principal.class));
 
-        /*Intent intent = new Intent(this,Principal.class);
-        intent.putExtra("usuario",usuario);
+        //startActivity(new Intent(Login.this, Principal.class));
+
+        Intent intent = new Intent(Login.this,Principal.class);
+        //String que vai ser passada
+        String valorAserPassado = usuario.getNome().toString();
+        //Cria bundle
+        Bundle infos = new Bundle();
+        infos.putString("campo",valorAserPassado);
+        //
+        intent.putExtras(infos);
         startActivity(intent);
-        */
-
     }
 
     public boolean validarEmail(EditText campoEmail) {
@@ -87,6 +96,15 @@ public class Login extends AppCompatActivity {
         }
         return true;
 
+    }
+
+    public user montarUser(){
+
+        UsuarioDAO u = new UsuarioDAO(getApplicationContext());
+        String email = campoEmail.getText().toString();
+        String senha = campoSenha.getText().toString();
+
+        return u.buscarPorEmailESenha(email,senha);
     }
 
 }

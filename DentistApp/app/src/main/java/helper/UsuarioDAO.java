@@ -61,7 +61,7 @@ public class UsuarioDAO implements  IUsuarioDAO{
     }
 
     @Override
-    public user buscar(String email, String senha) {
+    public user buscarPorEmailESenha(String email, String senha) {
         String sql = "SELECT * FROM "+DbHelper.TABELA_USUARIOS+" WHERE email=? AND senha=?";
         String[] args = {email, senha};
 
@@ -74,7 +74,7 @@ public class UsuarioDAO implements  IUsuarioDAO{
             c.moveToFirst();
             int id = c.getInt(c.getColumnIndex("id"));
             String nome_user= c.getString(c.getColumnIndex("nome"));
-            String email_user = c.getString(c.getColumnIndex("senha"));
+            String email_user = c.getString(c.getColumnIndex("email"));
 
             usu.setId(id);
             usu.setNome(nome_user);
@@ -84,4 +84,29 @@ public class UsuarioDAO implements  IUsuarioDAO{
 
         return usu;
     }
+
+    public user buscarPorNomedeUsuario(String username) {
+        String sql = "SELECT * FROM "+DbHelper.TABELA_USUARIOS+" WHERE nome=?";
+        String[] args = {username};
+
+        Cursor c = leitura.rawQuery(sql,args);
+
+        user usu = new user();
+        usu.setId(-1);
+
+        if(c.getCount() != 0 ){
+            c.moveToFirst();
+            int id = c.getInt(c.getColumnIndex("id"));
+            String nome_user= c.getString(c.getColumnIndex("nome"));
+            String email_user = c.getString(c.getColumnIndex("email"));
+
+            usu.setId(id);
+            usu.setNome(nome_user);
+            usu.setEmail(email_user);
+
+        }
+
+        return usu;
+    }
+
 }

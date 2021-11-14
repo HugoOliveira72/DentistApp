@@ -39,11 +39,12 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textViewUsername"
+                android:id="@+id/tv_Username"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="USERNAME" />
+                android:text="Nao consigo ler nada"
+                android:textColor="#263238" />
 
         </LinearLayout>
 
@@ -62,7 +63,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textViewEmailUser"
+                android:id="@+id/tv_EmailUser"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
