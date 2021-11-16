@@ -64,6 +64,8 @@ public class FirstFragment extends Fragment implements Serializable {
     //-----------------------------------------------------------------//
     private consulta consultaSelecionada = new consulta();
 
+    Button botaoSair;
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -159,6 +161,7 @@ public class FirstFragment extends Fragment implements Serializable {
             }
         }
         ));
+
     }
 
     private void setAdapter() {
@@ -225,9 +228,4 @@ public class FirstFragment extends Fragment implements Serializable {
         });
         alert.create().show();
     }
-
-
-
-
-
 }

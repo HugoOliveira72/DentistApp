@@ -78,7 +78,9 @@ public class Principal extends AppCompatActivity implements Serializable {
             }
         });
 
-        btn_Teste = findViewById(R.id.btn_Delete_ListItem);
+        //btn_Teste = findViewById(R.id.btn_Delete_ListItem);
+
+
     }
 
     @Override
@@ -92,29 +94,9 @@ public class Principal extends AppCompatActivity implements Serializable {
         startActivity(new Intent(this,ConsultaActivity.class));
     }
 
-    public void ExibirDialog(View view){
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            alert.setTitle("Excluir consulta");
-            alert.setMessage("Você realemente deseja excluir a consulta");
-            alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    Excluirconsulta();
-                    Toast.makeText(Principal.this, "Consulta excluida com sucesso!", Toast.LENGTH_SHORT).show();
-                }
-            });
-            alert.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    Toast.makeText(Principal.this, "!--------------!", Toast.LENGTH_SHORT).show();
-                }
-            });
-            alert.create().show();
-    }
-
-    public void Excluirconsulta(){
-
+    public void SAIR(View view){
+        startActivity(new Intent(this,MainActivity.class));
     }
 
 

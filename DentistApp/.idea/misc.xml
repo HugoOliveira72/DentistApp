@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/LogoPrincipal_background.xml" value="0.2203125" />
         <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/Logo_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/exit_icon.xml" value="0.2203125" />
         <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/gradient.xml" value="0.2203125" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/gradient_button_exit.xml" value="0.2203125" />
         <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/gradient_fab.xml" value="0.2203125" />
         <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/gradient_toolbar.xml" value="0.2203125" />
         <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/drawable/gradient_wall.xml" value="0.2203125" />
@@ -26,7 +28,7 @@
         <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/adapter_consulta.xml" value="0.33" />
         <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/content_principal.xml" value="0.292259083728278" />
         <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/content_tela_principal.xml" value="0.33" />
-        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/fragment_first.xml" value="0.33" />
+        <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/fragment_first.xml" value="0.25" />
         <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/fragment_second.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/layout/list_item.xml" value="0.33" />
         <entry key="..\:/Users/Hugo/AndroidStudioProjects/DentistApp/app/src/main/res/mipmap-anydpi-v26/image.xml" value="0.2203125" />
