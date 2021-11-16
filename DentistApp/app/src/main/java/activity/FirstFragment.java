@@ -2,17 +2,20 @@ package activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -27,6 +30,7 @@ import java.util.ArrayList;
 
 import adapter.adapterConsulta;
 import helper.ConsultaDAO;
+import helper.RecyclerItemClickListener;
 import helper.UsuarioDAO;
 import model.batata;
 import model.consulta;
@@ -56,6 +60,9 @@ public class FirstFragment extends Fragment implements Serializable {
 
     //-----------------------------------------------------------------//
     Button btn_Excluir;
+
+    //-----------------------------------------------------------------//
+    private consulta consultaSelecionada = new consulta();
 
     @Override
     public View onCreateView(
@@ -129,8 +136,29 @@ public class FirstFragment extends Fragment implements Serializable {
         setAdapter();
 
         //---------------------------------------------------------------------
-        btn_Excluir = getActivity().findViewById(R.id.btn_Delete_ListItem);
+        // ADICIONA EVENTO ON CLICK NO RECYCLER VIEW
 
+        //btn_Excluir = getActivity().findViewById(R.id.btn_Delete_ListItem);
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
+                getActivity().getApplicationContext(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                //Pegar a movimentação selecionada
+                consultaSelecionada = listaDeConsultas.get(position);
+                exibirDialog();
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        }
+        ));
     }
 
     private void setAdapter() {
@@ -160,17 +188,42 @@ public class FirstFragment extends Fragment implements Serializable {
         return u.buscarPorNomedeUsuario(NomeUsuario);
     }
 
-    public consulta montarConsulta(){
-        ConsultaDAO c = new ConsultaDAO(getActivity().getApplicationContext());
-        return (consulta) c.buscar(usuario.getEmail());
-    }
-
     @Override
     public void onStart() {
 
         setConsultainfo();
         setAdapter();
         super.onStart();
+    }
+
+    private void exibirDialog() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+        alert.setTitle("Excluir consulta");
+        alert.setMessage("Você realemente deseja excluir a consulta");
+
+        alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                consultaDAO = new ConsultaDAO(getActivity().getApplicationContext());
+                //Toast.makeText(getActivity(),"TESTE:"+consultaSelecionada.getId(), Toast.LENGTH_SHORT).show();
+                if(consultaDAO.deletarConsulta(consultaSelecionada)){
+                    Toast.makeText(getActivity(),"Consulta excluida com sucesso!", Toast.LENGTH_SHORT).show();
+                    setConsultainfo();
+                    setAdapter();
+                }else{
+                    Toast.makeText(getActivity(), "Erro ao excluir consulta", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
+        alert.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //Toast.makeText(getActivity(), "", Toast.LENGTH_SHORT).show();
+            }
+        });
+        alert.create().show();
     }
 
 

@@ -13,4 +13,6 @@ public interface IConsultaDAO {
 
     public List<consulta> buscar(String email);
 
+    public boolean deletarConsulta(consulta cons);
+
 }

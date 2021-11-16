@@ -1,11 +1,13 @@
 package activity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.dentistapp.R;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
@@ -49,6 +51,10 @@ public class Principal extends AppCompatActivity implements Serializable {
     //
     Button btn_Teste;
 
+    //
+    private consulta consultaSelecionada;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,8 +92,29 @@ public class Principal extends AppCompatActivity implements Serializable {
         startActivity(new Intent(this,ConsultaActivity.class));
     }
 
-    public void ExcluirConsulta(View view){
-        Toast.makeText(Principal.this, "Ola mundo", Toast.LENGTH_SHORT).show();
+    public void ExibirDialog(View view){
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("Excluir consulta");
+            alert.setMessage("Você realemente deseja excluir a consulta");
+            alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Excluirconsulta();
+                    Toast.makeText(Principal.this, "Consulta excluida com sucesso!", Toast.LENGTH_SHORT).show();
+                }
+            });
+            alert.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Toast.makeText(Principal.this, "!--------------!", Toast.LENGTH_SHORT).show();
+                }
+            });
+            alert.create().show();
+    }
+
+    public void Excluirconsulta(){
+
     }
 
 

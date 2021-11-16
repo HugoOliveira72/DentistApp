@@ -64,13 +64,6 @@
                 android:text=""
                 android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/btn_Delete_ListItem"
-                android:layout_width="52dp"
-                android:layout_height="match_parent"
-                android:onClick="ExcluirConsulta"
-                android:text="Button" />
-
         </LinearLayout>
 
         <LinearLayout
