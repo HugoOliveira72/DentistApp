@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -51,6 +53,9 @@ public class FirstFragment extends Fragment implements Serializable {
     //-----------------------------------------------------------------//
 
     ConsultaDAO consultaDAO;
+
+    //-----------------------------------------------------------------//
+    Button btn_Excluir;
 
     @Override
     public View onCreateView(
@@ -96,10 +101,10 @@ public class FirstFragment extends Fragment implements Serializable {
         cons.setEmailPaciente(usuario.getEmail());
 
         //Liga com o front-end
-        tv_Hora = getActivity().findViewById(R.id.tv_hora);
+        //tv_Hora = getActivity().findViewById(R.id.tv_hora);
 
         //TESTE, seta o email do user no campo tv_Hora, textView grandao debaixo do RecyclerView
-        tv_Hora.setText(cons.getEmailPaciente());
+        //tv_Hora.setText(cons.getEmailPaciente());
 
         //-----------------------------------------------------------------//
         //------------------TESTE COM RECYCLER VIEW------------------------//
@@ -122,6 +127,9 @@ public class FirstFragment extends Fragment implements Serializable {
 
         setConsultainfo();
         setAdapter();
+
+        //---------------------------------------------------------------------
+        btn_Excluir = getActivity().findViewById(R.id.btn_Delete_ListItem);
 
     }
 
@@ -156,6 +164,16 @@ public class FirstFragment extends Fragment implements Serializable {
         ConsultaDAO c = new ConsultaDAO(getActivity().getApplicationContext());
         return (consulta) c.buscar(usuario.getEmail());
     }
+
+    @Override
+    public void onStart() {
+
+        setConsultainfo();
+        setAdapter();
+        super.onStart();
+    }
+
+
 
 
 

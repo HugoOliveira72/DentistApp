@@ -9,6 +9,7 @@ import com.example.dentistapp.R;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,9 @@ public class Principal extends AppCompatActivity implements Serializable {
     //
     TextView tv_Usernome;
 
+    //
+    Button btn_Teste;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,10 +67,12 @@ public class Principal extends AppCompatActivity implements Serializable {
         binding.fabAdicionarConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Principal.this, "USUARIO:"+Consulta.getNomePaciente()+"\nDATA:"+Consulta.getData(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Principal.this, "USUARIO:"+Consulta.getNomePaciente()+"\nDATA:"+Consulta.getData(), Toast.LENGTH_SHORT).show();
                 abrirTelaConsulta(view);
             }
         });
+
+        btn_Teste = findViewById(R.id.btn_Delete_ListItem);
     }
 
     @Override
@@ -78,6 +84,10 @@ public class Principal extends AppCompatActivity implements Serializable {
 
     public void abrirTelaConsulta(View view){
         startActivity(new Intent(this,ConsultaActivity.class));
+    }
+
+    public void ExcluirConsulta(View view){
+        Toast.makeText(Principal.this, "Ola mundo", Toast.LENGTH_SHORT).show();
     }
 
 

@@ -7,80 +7,97 @@
 
     <LinearLayout
         android:layout_width="412dp"
-        android:layout_height="139dp"
+        android:layout_height="166dp"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_Label_ListItemConsulta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Consulta"
+            android:textColor="#2979FF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="53dp"
+            android:layout_height="38dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tv_label_ListItem_Data"
-                android:layout_width="66dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="0dp"
                 android:text="Data:"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_Data_ListItem"
-                android:layout_width="67dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="0dp"
                 android:hint="data"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_Label_ListItem_Hora"
-                android:layout_width="13dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="0dp"
                 android:layout_weight="1"
                 android:text="Hora:
 "
-                android:textSize="16dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_Hora_ListItem"
-                android:layout_width="166dp"
+                android:layout_width="116dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="0dp"
                 android:layout_weight="1"
                 android:hint="hora"
                 android:text=""
-                android:textSize="16dp"/>
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_Delete_ListItem"
+                android:layout_width="52dp"
+                android:layout_height="match_parent"
+                android:onClick="ExcluirConsulta"
+                android:text="Button" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="54dp"
+            android:layout_height="42dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tv_lavel_ListItem_Motivo"
-                android:layout_width="115dp"
+                android:layout_width="163dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_weight="1"
                 android:text="Motivo:
 "
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_Motivo_ListItem"
-                android:layout_width="386dp"
+                android:layout_width="281dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:hint="motivo"
                 android:text=""
-                android:textSize="16sp" />
+                android:textSize="20sp" />
+
         </LinearLayout>
     </LinearLayout>
 
