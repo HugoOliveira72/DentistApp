@@ -2,7 +2,6 @@ package activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -124,7 +123,7 @@ public class Cadastro extends AppCompatActivity {
 
         UsuarioDAO usuarioDAO = new UsuarioDAO(getApplicationContext());
 
-        return usuarioDAO.salvar(usuario);
+        return usuarioDAO.salvarUsuario(usuario);
 
     }
 

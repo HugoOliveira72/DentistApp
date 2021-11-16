@@ -9,17 +9,66 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
+        android:layout_width="409dp"
+        android:layout_height="115dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/gradient_wall"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/editTextMotivo"
+        app:layout_constraintBottom_toTopOf="@+id/editTextMotivoBox"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:layout_editor_absoluteX="1dp"></LinearLayout>
+
+    <EditText
+        android:id="@+id/editTextMotivoBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Motivo"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/et_Data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <EditText
+        android:id="@+id/et_Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:hint="Hora"
+        android:inputType="time"
+        app:layout_constraintBottom_toTopOf="@+id/btn_addConsulta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Data" />
+
+    <Button
+        android:id="@+id/btn_addConsulta"
+        android:layout_width="130dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="continuarAction"
+        android:text="Adicionar"
+        app:layout_constraintBottom_toTopOf="@+id/testou"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Time" />
+
+    <Button
+        android:id="@+id/testou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="teste"
+        android:text="testou"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_addConsulta" />
 
     <EditText
         android:id="@+id/et_Data"
@@ -31,46 +80,9 @@
         android:inputType="date"
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/et_Time"
-        app:layout_constraintStart_toStartOf="@+id/editTextMotivo"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMotivo" />
-
-    <EditText
-        android:id="@+id/editTextMotivo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="Motivo"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/et_Data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <EditText
-        android:id="@+id/et_Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="83dp"
-        android:ems="10"
-        android:hint="Hora"
-        android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/buttonIR"
-        app:layout_constraintStart_toStartOf="@+id/et_Data"
-        app:layout_constraintTop_toBottomOf="@+id/et_Data" />
-
-    <Button
-        android:id="@+id/buttonIR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="286dp"
-        android:onClick="teste"
-        android:text="VAII"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Time" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextMotivoBox" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

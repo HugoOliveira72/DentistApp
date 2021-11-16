@@ -14,27 +14,40 @@ import android.widget.Toast;
 
 import com.example.dentistapp.R;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
+import helper.ConsultaDAO;
+import model.consulta;
 
 public class ConsultaActivity extends AppCompatActivity {
 
     //Motivo
-    private String motivo;
+    EditText et_motivo;
+    String motivo;
 
     //DATA
     EditText etData;
     DatePickerDialog.OnDateSetListener setListener;
-    public String Data;
+    private String Data;
 
     //Hora
     EditText Tempo;
     TimePickerDialog timePickerDialog;
     int horaAtual;
     int minutoAtual;
-    public String Hora;
+    private String Hora;
 
+    //Pega instancia do calendário
     Calendar calendar = Calendar.getInstance();
+
+    //NomeUsuario
+    //private String Username;
+
+    //EMAIL
+   // private String Email;
+
+    //CONSULTA
+    private consulta cons = new consulta();
 
     //BUTTON
     Button botao;
@@ -73,8 +86,7 @@ public class ConsultaActivity extends AppCompatActivity {
             }
         });
 
-        //Pegar o valor no edittext e colocar no atributo data
-        this.Data = etData.getText().toString();
+
 
 
         //---------------------------------------------------------------------//
@@ -99,14 +111,60 @@ public class ConsultaActivity extends AppCompatActivity {
             }
         });
 
-        //Pegar o valor no edittext e colocar no atributo hora
+        //Pegar os valores e define para os atributos ConsultActivy
+
+        this.Data = etData.getText().toString();
         this.Hora = Tempo.getText().toString();
+        et_motivo = findViewById(R.id.editTextMotivoBox);
+        motivo = et_motivo.getText().toString();
 
         //---------------------------------------------------------------------//
+        //Consulta
+
+        //---------------------------------------------------------------------//
+
     }
 
     public void teste(View view){
-        Toast.makeText(ConsultaActivity.this, "Data:"+Data+"\nHora:"+Hora, Toast.LENGTH_SHORT).show();
+        //Distribui os valores para os atributos da classe consulta
+
+        cons.setMotivo(et_motivo.getText().toString());
+        cons.setData(Data);
+        cons.setHora(Hora);
+
+        Toast.makeText(ConsultaActivity.this, "Usuario:"+cons.getNomePaciente().toString()+"\nMotivo:"+cons.getMotivo().toString()+"\nData:"+cons.getData().toString()
+                +"\nHora:"+cons.getHora().toString(),Toast.LENGTH_SHORT).show();
+
+        /*
+                "\n==================\n" +
+                "Atributos da classe:\n" +
+                "Usuario:"+cons.getNomePaciente()+"\n" +
+                "Email:"+cons.getEmailPaciente()+"\n" +
+                "Motivo:"+cons.getMotivo()+"\n" +
+                "Data:"+cons.getData()+"\n" +
+                "Hora:"+cons.getHora()+"\n" , Toast.LENGTH_SHORT).show();
+        */
     }
+
+    public boolean cadastrarConsulta(){
+        cons.setMotivo(et_motivo.getText().toString());
+        cons.setData(Data);
+        cons.setHora(Hora);
+
+        ConsultaDAO consultaDAO = new ConsultaDAO(getApplicationContext());
+
+        return consultaDAO.salvarConsulta(cons);
+    }
+
+    public void continuarAction(View view){
+        if(cadastrarConsulta()){
+            Toast.makeText(ConsultaActivity.this, "Consulta cadastrada com sucesso!:",Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(ConsultaActivity.this, "Erro ao cadastrar consulta!:",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
 
 }

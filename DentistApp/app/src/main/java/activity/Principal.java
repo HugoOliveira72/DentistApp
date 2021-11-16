@@ -16,11 +16,21 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dentistapp.databinding.ActivityPrincipalBinding;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+//import adapter.adapterConsulta;
+import adapter.adapterConsulta;
+import helper.UsuarioDAO;
+import model.batata;
+import model.consulta;
 import model.user;
 
 public class Principal extends AppCompatActivity implements Serializable {
@@ -28,7 +38,9 @@ public class Principal extends AppCompatActivity implements Serializable {
     private AppBarConfiguration appBarConfiguration;
     private ActivityPrincipalBinding binding;
 
+    //
     user usuario;
+    consulta Consulta = new consulta();
 
     //
     TextView tv_Usernome;
@@ -38,10 +50,6 @@ public class Principal extends AppCompatActivity implements Serializable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_first);
 
-
-
-
-        //---------------------------------------------------------------
         binding = ActivityPrincipalBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -55,15 +63,11 @@ public class Principal extends AppCompatActivity implements Serializable {
         binding.fabAdicionarConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(Principal.this, "USUARIO:"+Consulta.getNomePaciente()+"\nDATA:"+Consulta.getData(), Toast.LENGTH_SHORT).show();
                 abrirTelaConsulta(view);
             }
         });
-
-        //tv_Usernome = findViewById(R.id.tv_Username);
-        //tv_Usernome.setText();
-
     }
-
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -76,15 +80,6 @@ public class Principal extends AppCompatActivity implements Serializable {
         startActivity(new Intent(this,ConsultaActivity.class));
     }
 
-
-    /*
-
-    @SuppressLint("SetTextI18n")
-    public void atualizarFragment(){
-        textoNome.setText("Usuário: "+usuario.getNome());
-    }
-
-     */
 
 
 }

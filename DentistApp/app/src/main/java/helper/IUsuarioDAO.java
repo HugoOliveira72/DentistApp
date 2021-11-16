@@ -4,7 +4,7 @@ import model.user;
 
 public interface IUsuarioDAO {
 
-    public  boolean salvar(user usuario );
+    public  boolean salvarUsuario(user usuario );
 
     public boolean atualizar(user usuario);
 

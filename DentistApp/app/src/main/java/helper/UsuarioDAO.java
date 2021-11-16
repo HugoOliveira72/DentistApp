@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import model.consulta;
 import model.user;
 
 public class UsuarioDAO implements  IUsuarioDAO{
@@ -20,7 +21,7 @@ public class UsuarioDAO implements  IUsuarioDAO{
     }
 
     @Override
-    public boolean salvar(user usuario) {
+    public boolean salvarUsuario(user usuario) {
         ContentValues cv = new ContentValues();
         cv.put("nome",usuario.getNome());
         cv.put("email",usuario.getEmail());
@@ -50,15 +51,17 @@ public class UsuarioDAO implements  IUsuarioDAO{
         try {
             String[] args = {String.valueOf(usuario.getId())};
             escrita.update(DbHelper.TABELA_USUARIOS,cv,"id=?",args);
-            Log.i("INFO DB", "Usuario cadastrado com sucesso");
+            Log.i("INFO DB", "Usuario atualizado com sucesso");
 
         }catch (Exception e){
-            Log.i("INFO DB", "Erro ao cadastrar"+e.getMessage());
+            Log.i("INFO DB", "Erro ao atualizar"+e.getMessage());
             return false;
         }
 
         return true;
     }
+
+
 
     @Override
     public user buscarPorEmailESenha(String email, String senha) {
